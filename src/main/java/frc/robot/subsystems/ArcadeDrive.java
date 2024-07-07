@@ -24,11 +24,13 @@ public class ArcadeDrive extends SubsystemBase {
   }
 
   public void setLeftMotors(double speed) {
+    speed *= -1;
     leftFrontVictorSPX.set(VictorSPXControlMode.PercentOutput, speed);
     leftBackVictorSPX.set(VictorSPXControlMode.PercentOutput, speed);
   }
 
   public void setRightMotors(double speed) {
+    speed *= -1;
     rightFrontVictorSPX.set(VictorSPXControlMode.PercentOutput, -speed);
     rightBackVictorSPX.set(VictorSPXControlMode.PercentOutput, -speed);
   }

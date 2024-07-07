@@ -33,8 +33,8 @@ public class TankDrive extends Command {
     double moveSpeed = forwardSpeed.getAsDouble();
     double turningSpeed = turnSpeed.getAsDouble();
     
-    double leftMotorSpeed = moveSpeed + turningSpeed;
-    double rightMotorSpeed = moveSpeed - turningSpeed;
+    double leftMotorSpeed = moveSpeed - turningSpeed;
+    double rightMotorSpeed = moveSpeed + turningSpeed;
     
     // Find the maximum absolute value of the speeds
     double maxSpeed = Math.max(Math.abs(leftMotorSpeed), Math.abs(rightMotorSpeed));

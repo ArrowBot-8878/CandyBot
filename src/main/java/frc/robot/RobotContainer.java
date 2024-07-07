@@ -46,6 +46,15 @@ public class RobotContainer {
    */
   private void configureBindings() {
     m_driverController.rightTrigger(0).whileTrue(new SpinCandyRotator(m_CandyRotator, ()-> m_driverController.getRightTriggerAxis()));
+
+    m_driverController.b().whileTrue(new SpinCandyRotator(m_CandyRotator, ()-> 0.1));
+
+    m_driverController.y().whileTrue(new SpinCandyRotator(m_CandyRotator, ()-> 0.2));
+
+    m_driverController.a().whileTrue(new SpinCandyRotator(m_CandyRotator, ()-> -0.1));
+
+    m_driverController.x().whileTrue(new SpinCandyRotator(m_CandyRotator, ()-> -0.2));
+
   }
 
   /**
