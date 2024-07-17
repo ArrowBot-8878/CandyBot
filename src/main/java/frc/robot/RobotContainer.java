@@ -9,6 +9,7 @@ import frc.robot.commands.SpinCandyRotator;
 import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.ArcadeDrive;
 import frc.robot.subsystems.CandyRotator;
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -30,7 +31,8 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
-    m_ArcadeDrive.setDefaultCommand(new TankDrive(m_ArcadeDrive, ()-> m_driverController.getLeftY(), ()-> m_driverController.getRightX()));
+    m_ArcadeDrive.setDefaultCommand(new TankDrive(m_ArcadeDrive, ()-> MathUtil.applyDeadband(m_driverController.getLeftY(), 0.15), 
+    ()-> MathUtil.applyDeadband(m_driverController.getRightX(), 0.15)));
     
     configureBindings();
   }
