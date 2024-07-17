@@ -31,8 +31,11 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
-    m_ArcadeDrive.setDefaultCommand(new TankDrive(m_ArcadeDrive, ()-> MathUtil.applyDeadband(m_driverController.getLeftY(), 0.15), 
-    ()-> MathUtil.applyDeadband(m_driverController.getRightX(), 0.15)));
+    m_ArcadeDrive.setDefaultCommand(
+      new TankDrive(
+        m_ArcadeDrive, 
+          ()-> MathUtil.applyDeadband(m_driverController.getLeftY(), 0.15), 
+          ()-> MathUtil.applyDeadband(m_driverController.getRightX(), 0.15)));
     
     configureBindings();
   }
